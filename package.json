@@ -2,9 +2,15 @@
   "name": "use-shared-loading",
   "version": "1.0.0",
   "description": "Custom hook to access a shared loading state in a component. The hook provides a wrapper for multiple composite function executions.",
-  "main": "index.js",
+  "main": "dist/use-share-loading.js",
+  "types": "dist/use-share-loading.d.ts",
   "scripts": {
     "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
@@ -12,7 +18,6 @@
   "files": [
     "dist/**/*"
   ],
-  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bennettdams/use-shared-loading.git"
@@ -21,7 +26,7 @@
     "react",
     "react-hooks"
   ],
-  "author": "",
+  "author": "Bennett Dams",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/bennettdams/use-shared-loading/issues"
